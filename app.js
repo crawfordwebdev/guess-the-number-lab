@@ -9,3 +9,10 @@ const game = {
   },
   prevGuesses: [],
 }
+
+
+function getGuess() {
+  return prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}.`)
+}
+
+console.log(getGuess())

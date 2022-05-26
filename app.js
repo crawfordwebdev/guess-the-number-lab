@@ -34,3 +34,5 @@ const game = {
   },
   prevGuesses: [],
 }
+
+game.play()

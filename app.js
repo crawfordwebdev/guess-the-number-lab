@@ -6,6 +6,12 @@ const game = {
   play: function () {
     this.secretNum = Math.floor(Math.random() *
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
+
+    // currentGuess = get guess
+    // while not secret num
+    // currentGuess = getGuess
+    // prevGuesses.push(currentGuess)
+    // 
   },
   prevGuesses: [],
 }
@@ -16,6 +22,33 @@ function getGuess() {
 }
 
 console.log(getGuess())
+
+function guessAgainMessage() {
+  let theGuess = game.prevGuesses[game.prevGuesses.length - 1]
+  let messageHighOrLow = function () {
+    if (theGuess > game.secretNum) {
+      return high
+    } else {
+      return low
+    }
+  }
+  return alert(`Your guess of ${theGuess} is too ${messageHighOrLow()}.
+  Previous Guesses: ${game.prevGuesses.join(', ')}`)
+}
+
+function secretNumGuessed() {
+  return alert(`Congratulations! You guessed the secret number in ${game.prevGuesses.length} tries!`)
+}
+
+
+// ## Features
+
+// - Allow the player to continually be prompted to enter their guess at the secret number until they guess correctly.
+// - If the player has an incorrect guess, display an alert message that informs the player:
+//     - Whether their guess is too high or too low, and…
+//     - A list of all the previously guessed numbers (without showing the square brackets of an array).
+// - If the player has guessed the secret number:
+//     - Display an alert message that congrats the player and informs them of how many guesses they took.
 
 
 // ## Features

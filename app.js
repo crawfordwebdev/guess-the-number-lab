@@ -13,33 +13,27 @@ const game = {
     // prevGuesses.push(currentGuess)
     // 
   },
+  guessAgainMessage: function () {
+    let theGuess = this.prevGuesses[this.prevGuesses.length - 1]
+    let messageHighOrLow = function () {
+      // REFACTOR ternary
+      if (theGuess > this.secretNum) {
+        return high
+      } else {
+        return low
+      }
+    }
+    return alert(`Your guess of ${theGuess} is too ${messageHighOrLow()}.
+    Previous Guesses: ${this.prevGuesses.join(', ')}`)
+  },
+  getGuess: function () {
+    return prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`)
+  },
+  secretNumGuessed: function() {
+    return alert(`Congratulations! You guessed the secret number in ${this.prevGuesses.length} tries!`)
+  },
   prevGuesses: [],
 }
-
-
-function getGuess() {
-  return prompt(`Enter a guess between ${game.smallestNum} and ${game.biggestNum}.`)
-}
-
-console.log(getGuess())
-
-function guessAgainMessage() {
-  let theGuess = game.prevGuesses[game.prevGuesses.length - 1]
-  let messageHighOrLow = function () {
-    if (theGuess > game.secretNum) {
-      return high
-    } else {
-      return low
-    }
-  }
-  return alert(`Your guess of ${theGuess} is too ${messageHighOrLow()}.
-  Previous Guesses: ${game.prevGuesses.join(', ')}`)
-}
-
-function secretNumGuessed() {
-  return alert(`Congratulations! You guessed the secret number in ${game.prevGuesses.length} tries!`)
-}
-
 
 // ## Features
 

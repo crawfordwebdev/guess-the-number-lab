@@ -33,9 +33,12 @@ const game = {
       guess > this.biggestNum || // Guess is too big
       guess < this.smallestNum) // Guess is too small
 
+    // Don't forget to return guess so it can get pushed onto the prevGuess array
+    return guess
 
   },
   prevGuesses: [],
 }
 
+console.log("Let's Play!")
 game.play()

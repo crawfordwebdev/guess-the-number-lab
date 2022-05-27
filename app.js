@@ -13,7 +13,7 @@ const game = {
 
       this.render()
 
-    // Did the play guess the correct answer?
+    // Did the player guess the correct answer?
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
 
   },
@@ -22,10 +22,8 @@ const game = {
     let guess
 
     do {
-      console.log('Getting Guess')
       guess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}.`))
-      console.log("Type of guess: " + typeof(guess))
-      console.log("What is the guess? : " + guess)
+ 
     } while (
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
       // Must use isNaN because NaN === NaN will return false
@@ -46,7 +44,6 @@ const game = {
       let highLow = lastGuess > this.secretNum ?  "high" : "low"
       message = `Your guess is too ${highLow}. Previous guesses: ${this.prevGuesses.join(', ')}` 
     }
-    console.log(message)
     alert(message)
   },
 

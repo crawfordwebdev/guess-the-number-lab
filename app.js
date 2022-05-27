@@ -9,9 +9,9 @@ const game = {
     
     do {
       // getGuess should only return a valid guess, otherwise it will keep asking.
-      console.log("Start Do: " + this.prevGuesses)
       this.prevGuesses.push(this.getGuess())
-      console.log("After Push: " + this.prevGuesses)
+
+      this.render()
 
     // Did the play guess the correct answer?
     } while (this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum)
@@ -35,10 +35,22 @@ const game = {
 
     // Don't forget to return guess so it can get pushed onto the prevGuess array
     return guess
-
   },
+  render: function() {
+    let message
+    let lastGuess = this.prevGuesses[this.prevGuesses.length - 1]
+
+    if (lastGuess === this.secretNum) {
+      message = `Congrats! You guessed the number in ${this.prevGuesses.length} ${this.prevGuesses.length > 1 ? "tries" : "try"}!`
+    } else {
+      let highLow = lastGuess > this.secretNum ?  "high" : "low"
+      message = `Your guess is too ${highLow}. Previous guesses: ${this.prevGuesses.join(', ')}` 
+    }
+    console.log(message)
+    alert(message)
+  },
+
   prevGuesses: [],
 }
 
-console.log("Let's Play!")
 game.play()
